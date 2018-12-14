@@ -35,7 +35,21 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public Employee getEmpById(int id) {
-		// TODO Auto-generated method stub
+
+		Session session = null;
+		Transaction tx = null;
+		try {
+
+			session = HibernateUtil.getSessionfactory().openSession();
+			//tx = session.beginTransaction();
+			Employee employee = (Employee) session.get(Employee.class, new Integer(id));
+
+			session.close();
+			return employee;
+		} catch (HibernateException e) {
+			//tx.rollback();
+			e.printStackTrace();
+		}
 
 		return null;
 	}
@@ -54,7 +68,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 			session.save(employee);
 			tx.commit();
 			session.close();
-			 return 200;
+			return 200;
 		} catch (HibernateException e) {
 			tx.rollback();
 			e.printStackTrace();

@@ -20,7 +20,7 @@ public class Employee {
 
 	@Id
 	@Column(name = "emp_id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private int emp_id;
 
 	@Column(name = "emp_name")

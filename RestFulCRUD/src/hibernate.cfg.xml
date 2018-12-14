@@ -10,7 +10,7 @@
   <property name="hibernate.default_schema">mysql</property>
   <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
   <property name="hibernate.show_sql">true</property>
-  <property name="hibernate.hbm2ddl.auto">create-drop</property>
+  <property name="hibernate.hbm2ddl.auto">update</property>
   <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
   <mapping class="com.masterjavaonline.model.Employee"/>
  </session-factory>
